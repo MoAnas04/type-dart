@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import books from "../data/texts";
 import words from "../data/texts";
-import styles from "./Hero.module.css";
 import { findDOMNode } from "react-dom";
 
 import Nav from "./Navbar";
@@ -15,12 +14,12 @@ class App extends Component {
     super(props);
 
     this.state = {
-      inputText: "Welcome to typing practicer",
+      inputText: "Welcome to Type Dart",
       keyPressed: null,
       keyCode: null,
       progress: 0,
       incorrectArr: [],
-      remainingText: "Welcome to typing practicer",
+      remainingText: "Welcome to Type Dart",
       completedText: "",
       accuracy: 100,
       incorrect: false,
@@ -411,7 +410,7 @@ class App extends Component {
       <div className="App">
         {/* <Nav handleToggleMenu={this.handleToggleMenu} /> */}
 
-        <div className={styles.main} ref="main">
+        <div className="main"  ref="main">
           <Stats
             accuracy={accuracy}
             showStats={showStats}
@@ -432,18 +431,6 @@ class App extends Component {
             ref="screen"
           />
 
-          {/* <Keyboard
-            keyCode={keyCode}
-            showStats={showStats}
-            incorrect={incorrect}
-            correctLetter={correctLetter}
-            remainingText={remainingText}
-            inputSelected={inputSelected}
-            correctLetterCase={correctLetterCase}
-            caps={caps}
-            incorrectArr={incorrectArr}
-            keyboardScaler={keyboardScaler}
-          /> */}
         </div>
         <Sidebar
           showMenu={showMenu}

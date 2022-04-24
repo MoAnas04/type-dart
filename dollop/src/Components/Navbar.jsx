@@ -1,31 +1,14 @@
 import { ReactNode } from 'react';
-import {
-  Box,
-  Flex,
-  Avatar,
-  Link,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  useColorMode,
-  Center,
-} from '@chakra-ui/react';
+import { Box, Flex, Avatar, Link, Button, Menu, MenuButton, MenuList,
+  MenuItem, MenuDivider, useDisclosure, useColorModeValue, Stack, useColorMode,
+  Center, } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import Image from 'next/image'
+
 
 const NavLink = ({ children }) => (
   <Link
-    px={2}
-    py={1}
-	width='100%'
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
+    px={2} py={1} width='100%' rounded={'md'} _hover={{ textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
     href={'#'}>
@@ -40,7 +23,7 @@ export default function Nav() {
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} marginLeft={0}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>Typing Impactor</Box>
+          <Box>Type Dart</Box>
 
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>

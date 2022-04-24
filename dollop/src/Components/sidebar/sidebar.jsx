@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { findDOMNode } from "react-dom";
-import styles from "./sidebar.module.css";
 
 class Sidebar extends Component {
   render() {
