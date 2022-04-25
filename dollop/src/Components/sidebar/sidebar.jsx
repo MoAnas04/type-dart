@@ -30,19 +30,19 @@ class Sidebar extends Component {
                 className="sidebar__switch__option"
                 onClick={() => displayText("test1")}
               >
-                <p>1min</p>
+                <p className="sidebar__item__p">1min</p>
               </div>
               <div
                 className="sidebar__switch__option"
                 onClick={() => displayText("test3")}
-              >
-                <p>3min</p>
+              > 
+                <p className="sidebar__item__p">3min</p>
               </div>
               <div
                 className="sidebar__switch__option"
                 onClick={() => displayText("test5")}
               >
-                <p>5min</p>
+                <p className="sidebar__item__p">5min</p>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@ class Sidebar extends Component {
             <div className="sidebar__generator">
               <input
                 type="text"
-                className="sidebar__generator__input"
+                className="sidebar__generator__input sidebar__item__p"
                 placeholder="add characters here"
                 ref="genInput"
                 onFocus={genFocus}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import FaRepeat from 'react-icons/lib/fa/repeat'
 // import FaStepForward from 'react-icons/lib/fa/step-forward'
-
+import {ChevronRightIcon, RepeatIcon} from '@chakra-ui/icons'
  class Stats extends Component {
 
   render() {
@@ -36,6 +36,7 @@ import React, { Component } from 'react';
             () => displayText('redoText', true)
           }>
           {/* <FaRepeat/> */}
+<RepeatIcon/>
         </div>
         <div className={(inputSelected !== null)
           ? "results__options__box"
@@ -46,6 +47,7 @@ import React, { Component } from 'react';
             }
           }
         }>
+<ChevronRightIcon/>
           {/* <FaStepForward /> */}
         </div>
         <div className={

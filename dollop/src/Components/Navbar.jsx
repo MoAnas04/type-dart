@@ -4,7 +4,7 @@ import { Box, Flex, Avatar, Link, Button, Menu, MenuButton, MenuList,
   Center, } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import Image from 'next/image'
-
+import myLogo from '../../public/Logo.png';
 
 const NavLink = ({ children }) => (
   <Link
@@ -23,7 +23,17 @@ export default function Nav() {
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} marginLeft={0}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>Type Dart</Box>
+
+          <Box>
+            <Image src={myLogo}
+              alt="Logo"
+              height="50px"
+              width="70px"
+              // layout="responsive"
+            >
+              
+              </Image>
+            </Box>
 
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>

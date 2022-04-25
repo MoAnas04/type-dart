@@ -3,10 +3,12 @@ import books from "../data/texts";
 import words from "../data/texts";
 import { findDOMNode } from "react-dom";
 
+import { Icon } from '@chakra-ui/react'
+import { MdKeyboardHide } from 'react-icons/md'
 import Nav from "./Navbar";
 import Stats from "./Stats/stats";
 import Screen from "./Screen/Screen";
-// import { Keyboard } from "./Keyboard";
+import  Keyboard  from "./Keyboard/Keyboard";
 import Sidebar from "./sidebar/sidebar";
 
 class App extends Component {
@@ -27,6 +29,7 @@ class App extends Component {
       wpm: 0,
       currentCount: 0,
       intervalId: null,
+      isOn:false,
       timeIncreasing: false,
       correctLetter: "w",
       correctLetterCase: "uppercase",
@@ -36,11 +39,12 @@ class App extends Component {
       keyboardScaler: "100%",
       incorrectWordsArr: [],
       incorrectWordCurrent: false,
+      isOn:false,
       screenFade: true,
       caps: "keyboard__key keyboard__width-threeQuarts",
       showMenu: false,
     };
-
+    this.handleClick=this.handleClick.bind(this);
     this.genFocus = this.genFocus.bind(this);
     this.genBlur = this.genBlur.bind(this);
     this.handleKeyboardScale = this.handleKeyboardScale.bind(this);
@@ -48,6 +52,9 @@ class App extends Component {
     this.displayText = this.displayText.bind(this);
   }
 
+  handleClick() {
+    this.setState({ isOn: !this.state.isOn });
+  }
   componentDidMount() {
     document.addEventListener("keydown", (e) => {
       this.handleKeyPress(e);
@@ -235,6 +242,7 @@ class App extends Component {
         );
         this.setState({
           timeIncreasing: true,
+          
         });
       }
 
@@ -352,8 +360,7 @@ class App extends Component {
   }
 
   handleKeyboardScale() {
-    let scaler =
-      Math.min(findDOMNode(this.refs.main).clientWidth / 744, 1) * 100 + "%";
+    let scaler = (Math.min(findDOMNode(this.refs.main).clientWidth/744, 1) * 100) + '%'
     this.setState({
       keyboardScaler: scaler,
     });
@@ -403,9 +410,11 @@ class App extends Component {
       correctLetter,
       correctLetterCase,
       caps,
+      isOn,
       keyboardScaler,
       showMenu,
     } = this.state;
+    let title = this.state.isOn ? "Hide Keyboard" : "Show Keyboard";
     return (
       <div className="App">
         {/* <Nav handleToggleMenu={this.handleToggleMenu} /> */}
@@ -431,6 +440,9 @@ class App extends Component {
             ref="screen"
           />
 
+          <button className="statbox__title" onClick={this.handleClick}><Icon as={MdKeyboardHide} /></button>
+          {isOn &&
+            <Keyboard keyCode={keyCode} showStats={showStats} incorrect={incorrect} correctLetter={correctLetter} remainingText={remainingText} inputSelected={inputSelected} correctLetterCase={correctLetterCase} caps={caps} incorrectArr={incorrectArr} keyboardScaler={keyboardScaler} />}
         </div>
         <Sidebar
           showMenu={showMenu}
